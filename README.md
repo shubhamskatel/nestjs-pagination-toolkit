@@ -1,5 +1,8 @@
 # nestjs-pagination-toolkit
 
+[![CI](https://github.com/shubhamskatel/nestjs-pagination-toolkit/actions/workflows/ci.yml/badge.svg)](https://github.com/shubhamskatel/nestjs-pagination-toolkit/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
+
 A single reusable service for NestJS + TypeORM that handles pagination, dynamic
 filtering, sorting, search, and relation loading over a `Repository<T>`, so you don't
 have to hand-roll `skip()`/`take()`, `WHERE` clause building, and sort/search logic in
@@ -17,21 +20,15 @@ into SQL, so you don't have to sanitize field names yourself.
 
 ## Install
 
-Not published to npm yet (see [PUBLISHING.md](./PUBLISHING.md) for what's outstanding).
-Until then, consume it from source:
-
 ```bash
-# from a sibling checkout
-npm install /path/to/pagination-service
-
-# or copy src/ into your project and import from there directly
+npm install nestjs-pagination-toolkit
 ```
 
 Peer dependencies you need in the consuming project:
 
 ```bash
 npm install @nestjs/common typeorm
-# optional, only needed for the @PaginationQuery() decorator:
+# optional, only needed for the @PaginationQuery() decorator (see below):
 npm install class-transformer class-validator
 ```
 
@@ -283,6 +280,7 @@ can fall back to your own default).
 ```bash
 npm test           # 88 mocked unit tests, no database required
 npm run test:cov   # same, with coverage
+npm run test:e2e   # real NestJS DI + HTTP pipeline test, no database required
 ```
 
 The unit suite (`src/**/*.spec.ts`) exercises `whereCondition`/`FindOperator` handling
@@ -290,6 +288,12 @@ The unit suite (`src/**/*.spec.ts`) exercises `whereCondition`/`FindOperator` ha
 search, relations, select-field validation, page/limit validation, error handling, the
 `PaginationQueryDto`, and the `@PaginationQuery()` decorator — all against a mocked
 `SelectQueryBuilder`, no real database.
+
+`test:e2e` (`smoke-test/nest-app.e2e.spec.ts`) bootstraps an actual NestJS application via
+`@nestjs/testing`, with a controller that constructor-injects `PaginationService` through
+`PaginationModule` and uses `@PaginationQuery()` on a real route, exercised with real HTTP
+requests via `supertest`. This is the only test that goes through Nest's real dependency
+injection container and HTTP pipeline rather than instantiating the service directly.
 
 Two additional scripts run the service against **real** databases in Docker and are not
 part of the Jest suite:
@@ -319,8 +323,6 @@ Both require the respective container to already be running locally (see each fi
 - No built-in rate limiting or query-cost guards on `limit` — callers should bound
   `limit` themselves if untrusted clients can set it arbitrarily high.
 
-## Publishing status
+## License
 
-Not yet published to npm. `package.json` is versioned `0.1.0` as a placeholder and still
-has an author/repository-URL placeholder. See [PUBLISHING.md](./PUBLISHING.md) for the
-full pre-publish checklist and open decisions.
+MIT — see [LICENSE](./LICENSE).
