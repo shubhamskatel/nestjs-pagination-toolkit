@@ -247,10 +247,13 @@ If you're still on TypeORM 0.2.x, upgrade rather than work around it.
 
 ## `@PaginationQuery()` decorator
 
-Requires the optional peer deps `class-validator` and `class-transformer`.
+Requires the optional peer deps `class-validator` and `class-transformer`. Imported from a
+separate subpath (`nestjs-pagination-toolkit/query`), not the package root — this keeps
+`import { PaginationService } from 'nestjs-pagination-toolkit'` working even if you never
+install `class-validator`/`class-transformer`, since the main entry point never loads them.
 
 ```ts
-import { PaginationQuery, PaginationQueryDto } from 'nestjs-pagination-toolkit';
+import { PaginationQuery, PaginationQueryDto } from 'nestjs-pagination-toolkit/query';
 
 @Get()
 getAll(@PaginationQuery() query: PaginationQueryDto) {
