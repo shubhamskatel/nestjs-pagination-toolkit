@@ -5,7 +5,7 @@
     "lib": ["ES2021"],
     "declaration": true,
     "outDir": "./dist",
-    "rootDir": "./pagination",
+    "rootDir": "./src",
     "strict": true,
     "strictPropertyInitialization": false,
     "experimentalDecorators": true,
@@ -15,6 +15,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node"
   },
-  "include": ["pagination/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["**/*.spec.ts", "dist", "node_modules"]
 }

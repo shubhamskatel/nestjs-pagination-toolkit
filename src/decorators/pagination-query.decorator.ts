@@ -5,7 +5,7 @@ import {
 } from '@nestjs/common';
 import { plainToInstance } from 'class-transformer';
 import { validateSync } from 'class-validator';
-import { PaginationQueryDto } from './pagination-query.dto';
+import { PaginationQueryDto } from '../dto/pagination-query.dto';
 
 /**
  * Extracts, coerces, and validates page/limit/search/sort query params from

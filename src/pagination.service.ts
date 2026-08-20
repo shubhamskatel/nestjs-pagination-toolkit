@@ -11,7 +11,7 @@ import {
   PaginationQueryOptions,
   SortOptions,
   WhereCondition,
-} from './pagination-options.interface';
+} from './interfaces/pagination-options.interface';
 
 export {
   PaginatedResult,
@@ -19,7 +19,7 @@ export {
   PaginationQueryOptions,
   PaginationFeatureOptions,
   WhereCondition,
-} from './pagination-options.interface';
+} from './interfaces/pagination-options.interface';
 
 // No defaults: MySQL SET-column (FIND_IN_SET) matching is opt-in via
 // featureOptions.setColumns/setColumnsAll. Earlier versions hardcoded

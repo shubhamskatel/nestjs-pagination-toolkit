@@ -1,6 +1,6 @@
 import { Type } from 'class-transformer';
 import { IsIn, IsInt, IsOptional, IsString, Min } from 'class-validator';
-import { PaginationQueryOptions, SortOptions } from './pagination-options.interface';
+import { PaginationQueryOptions, SortOptions } from '../interfaces/pagination-options.interface';
 
 /**
  * Typed shape of the raw pagination-related query params a NestJS controller

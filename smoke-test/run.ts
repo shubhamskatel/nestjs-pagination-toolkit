@@ -1,7 +1,7 @@
 import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 import { Author, Book, Review } from './entities';
-import { PaginationService } from '../pagination/pagination.service';
+import { PaginationService } from '../src/pagination.service';
 
 function assertEqual(label: string, actual: unknown, expected: unknown) {
   const a = JSON.stringify(actual);
