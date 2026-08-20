@@ -1,4 +1,4 @@
-# nestjs-typeorm-pagination
+# nestjs-pagination-toolkit
 
 A single reusable service for NestJS + TypeORM that handles pagination, dynamic
 filtering, sorting, search, and relation loading over a `Repository<T>`, so you don't
@@ -41,7 +41,7 @@ npm install class-transformer class-validator
 import { Module, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { PaginationModule, PaginationService, WhereCondition, PaginationQueryOptions } from 'nestjs-typeorm-pagination';
+import { PaginationModule, PaginationService, WhereCondition, PaginationQueryOptions } from 'nestjs-pagination-toolkit';
 
 @Module({
   imports: [PaginationModule],
@@ -250,7 +250,7 @@ If you're still on TypeORM 0.2.x, upgrade rather than work around it.
 Requires the optional peer deps `class-validator` and `class-transformer`.
 
 ```ts
-import { PaginationQuery, PaginationQueryDto } from 'nestjs-typeorm-pagination';
+import { PaginationQuery, PaginationQueryDto } from 'nestjs-pagination-toolkit';
 
 @Get()
 getAll(@PaginationQuery() query: PaginationQueryDto) {

@@ -5,11 +5,15 @@ this list.
 
 ## Open decisions
 
-1. **Package name / scope** — `package.json` currently uses the placeholder name
-   `nestjs-typeorm-pagination`. Decide whether to publish it unscoped under that name
-   (check it's actually available on the npm registry first) or under an npm org/user
-   scope (e.g. `@your-org/nestjs-typeorm-pagination`). Scoped packages default to private
-   and need `--access public` to publish publicly.
+1. ~~**Package name / scope**~~ — done: the original candidate `nestjs-typeorm-pagination`
+   was technically free on npm (`npm view` returns E404), but a near-identical existing
+   package, `nestjs-typeorm-paginate` (unrelated, narrower in scope — just builds a
+   pagination object, no dynamic filtering/search/FindOperator support), made that name too
+   confusable. Settled on the unscoped name `nestjs-pagination-toolkit` instead — distinct
+   from the existing package, still leads with "pagination" for discoverability, and "toolkit"
+   is intentional: more features (beyond pagination/filtering/sorting/search) are planned.
+   Published unscoped (no npm org/user scope), so no `--access public` flag is needed at
+   publish time (step 8 below reflects this).
 2. ~~**Author name**~~ — done: `package.json`'s `"author"` and `LICENSE`'s copyright line
    are both set to "Shubham Sharma".
 3. ~~**Repository / homepage / bugs URLs**~~ — done: the repo is pushed to
@@ -28,9 +32,7 @@ this list.
 6. Create (or verify you have) an npm account, and enable two-factor authentication (2FA)
    on it.
 7. `npm login` — authenticate the npm CLI with that account.
-8. Publish:
-   - Unscoped package: `npm publish`
-   - Scoped package intended to be public: `npm publish --access public`
+8. Publish: `npm publish` (unscoped package, no `--access` flag needed).
 9. After publishing, verify the package page on npmjs.com renders correctly (README,
    license, repository link) and that `npm install <package-name>` works in a scratch
    project.
