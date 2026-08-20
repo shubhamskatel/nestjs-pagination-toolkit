@@ -10,17 +10,11 @@ this list.
    (check it's actually available on the npm registry first) or under an npm org/user
    scope (e.g. `@your-org/nestjs-typeorm-pagination`). Scoped packages default to private
    and need `--access public` to publish publicly.
-2. **Author name** — fill in the real author name/handle in `package.json`'s `"author"`
-   field and in the copyright line of `LICENSE` (`Copyright (c) 2026 <package author>`).
-   Both currently have a `<package author>` placeholder.
-3. **Repository / homepage / bugs URLs** — not set in `package.json` because this repo has
-   no git remote configured yet. Once the code is pushed somewhere (GitHub, GitLab, etc.),
-   add:
-   ```json
-   "repository": { "type": "git", "url": "git+https://github.com/<owner>/<repo>.git" },
-   "homepage": "https://github.com/<owner>/<repo>#readme",
-   "bugs": { "url": "https://github.com/<owner>/<repo>/issues" }
-   ```
+2. ~~**Author name**~~ — done: `package.json`'s `"author"` and `LICENSE`'s copyright line
+   are both set to "Shubham Sharma".
+3. ~~**Repository / homepage / bugs URLs**~~ — done: the repo is pushed to
+   [github.com/shubhamskatel/nestjs-typeorm-pagination](https://github.com/shubhamskatel/nestjs-typeorm-pagination),
+   and `package.json`'s `repository`/`homepage`/`bugs` fields point there.
 
 ## Steps
 

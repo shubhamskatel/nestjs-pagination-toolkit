@@ -12,7 +12,15 @@
     "typescript"
   ],
   "license": "MIT",
-  "author": "<package author>",
+  "author": "Shubham Sharma",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamskatel/nestjs-typeorm-pagination.git"
+  },
+  "homepage": "https://github.com/shubhamskatel/nestjs-typeorm-pagination#readme",
+  "bugs": {
+    "url": "https://github.com/shubhamskatel/nestjs-typeorm-pagination/issues"
+  },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
