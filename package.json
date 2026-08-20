@@ -15,11 +15,11 @@
   "author": "Shubham Sharma",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/shubhamskatel/nestjs-typeorm-pagination.git"
+    "url": "git+https://github.com/shubhamskatel/nestjs-pagination-toolkit.git"
   },
-  "homepage": "https://github.com/shubhamskatel/nestjs-typeorm-pagination#readme",
+  "homepage": "https://github.com/shubhamskatel/nestjs-pagination-toolkit#readme",
   "bugs": {
-    "url": "https://github.com/shubhamskatel/nestjs-typeorm-pagination/issues"
+    "url": "https://github.com/shubhamskatel/nestjs-pagination-toolkit/issues"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

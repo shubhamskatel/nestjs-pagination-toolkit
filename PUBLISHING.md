@@ -16,9 +16,10 @@ this list.
    publish time (step 8 below reflects this).
 2. ~~**Author name**~~ — done: `package.json`'s `"author"` and `LICENSE`'s copyright line
    are both set to "Shubham Sharma".
-3. ~~**Repository / homepage / bugs URLs**~~ — done: the repo is pushed to
-   [github.com/shubhamskatel/nestjs-typeorm-pagination](https://github.com/shubhamskatel/nestjs-typeorm-pagination),
-   and `package.json`'s `repository`/`homepage`/`bugs` fields point there.
+3. ~~**Repository / homepage / bugs URLs**~~ — done: the repo is public at
+   [github.com/shubhamskatel/nestjs-pagination-toolkit](https://github.com/shubhamskatel/nestjs-pagination-toolkit)
+   (renamed to match the package), and `package.json`'s `repository`/`homepage`/`bugs`
+   fields point there. CI (`.github/workflows/ci.yml`) is confirmed green on `main`.
 
 ## Steps
 
