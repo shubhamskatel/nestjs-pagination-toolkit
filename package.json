@@ -1,0 +1,64 @@
+{
+  "name": "nestjs-typeorm-pagination",
+  "version": "0.1.0",
+  "description": "Reusable pagination, filtering, sorting and search helper for NestJS + TypeORM repositories",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "smoke:mysql": "ts-node -T --compiler-options \"{\\\"module\\\":\\\"commonjs\\\",\\\"experimentalDecorators\\\":true,\\\"emitDecoratorMetadata\\\":true}\" smoke-test/run.ts"
+  },
+  "peerDependencies": {
+    "@nestjs/common": "^10.0.0 || ^11.0.0",
+    "class-transformer": "^0.5.0",
+    "class-validator": "^0.14.0 || ^0.15.0",
+    "typeorm": "^0.3.0"
+  },
+  "peerDependenciesMeta": {
+    "class-transformer": {
+      "optional": true
+    },
+    "class-validator": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@nestjs/common": "^11.0.1",
+    "@nestjs/core": "^11.2.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^22.10.7",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "jest": "^30.0.0",
+    "mysql2": "^3.23.4",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typeorm": "^0.3.27",
+    "typescript": "^5.7.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "pagination",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  }
+}
