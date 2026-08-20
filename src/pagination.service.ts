@@ -1,3 +1,4 @@
+import { Injectable } from '@nestjs/common';
 import {
   Brackets,
   FindOperator,
@@ -30,6 +31,7 @@ export {
 const DEFAULT_SET_COLUMNS_ANY: string[] = [];
 const DEFAULT_SET_COLUMNS_ALL: string[] = [];
 
+@Injectable()
 export class PaginationService {
   async applyPaginationAndFilters<T extends object>(
     repository: Repository<T>,

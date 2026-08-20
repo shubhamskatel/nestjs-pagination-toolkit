@@ -25,5 +25,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Test
+      - name: Unit tests
         run: npm test
+
+      - name: End-to-end tests (real NestJS DI + HTTP pipeline, no external DB)
+        run: npm run test:e2e

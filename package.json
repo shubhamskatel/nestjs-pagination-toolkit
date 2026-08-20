@@ -45,7 +45,8 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "smoke:mysql": "ts-node -T --compiler-options \"{\\\"module\\\":\\\"commonjs\\\",\\\"experimentalDecorators\\\":true,\\\"emitDecoratorMetadata\\\":true}\" smoke-test/run.ts",
-    "smoke:postgres": "ts-node -T --compiler-options \"{\\\"module\\\":\\\"commonjs\\\",\\\"experimentalDecorators\\\":true,\\\"emitDecoratorMetadata\\\":true}\" smoke-test/run-pg.ts"
+    "smoke:postgres": "ts-node -T --compiler-options \"{\\\"module\\\":\\\"commonjs\\\",\\\"experimentalDecorators\\\":true,\\\"emitDecoratorMetadata\\\":true}\" smoke-test/run-pg.ts",
+    "test:e2e": "jest --config jest-e2e.config.json"
   },
   "peerDependencies": {
     "@nestjs/common": "^10.0.0 || ^11.0.0",
@@ -64,9 +65,12 @@
   "devDependencies": {
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.2.1",
+    "@nestjs/platform-express": "^11.2.1",
+    "@nestjs/testing": "^11.2.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^22.10.7",
     "@types/pg": "^8.23.1",
+    "@types/supertest": "^6.0.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
     "jest": "^30.0.0",
@@ -74,6 +78,7 @@
     "pg": "^8.23.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
+    "supertest": "^7.2.2",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typeorm": "^0.3.27",
