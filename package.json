@@ -1,18 +1,33 @@
 {
   "name": "nestjs-typeorm-pagination",
   "version": "0.1.0",
-  "description": "Reusable pagination, filtering, sorting and search helper for NestJS + TypeORM repositories",
+  "description": "Reusable pagination, dynamic filtering, sorting and search helper for NestJS + TypeORM repositories",
+  "keywords": [
+    "nestjs",
+    "typeorm",
+    "pagination",
+    "filtering",
+    "sorting",
+    "search",
+    "typescript"
+  ],
+  "license": "MIT",
+  "author": "<package author>",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
-    "smoke:mysql": "ts-node -T --compiler-options \"{\\\"module\\\":\\\"commonjs\\\",\\\"experimentalDecorators\\\":true,\\\"emitDecoratorMetadata\\\":true}\" smoke-test/run.ts"
+    "smoke:mysql": "ts-node -T --compiler-options \"{\\\"module\\\":\\\"commonjs\\\",\\\"experimentalDecorators\\\":true,\\\"emitDecoratorMetadata\\\":true}\" smoke-test/run.ts",
+    "smoke:postgres": "ts-node -T --compiler-options \"{\\\"module\\\":\\\"commonjs\\\",\\\"experimentalDecorators\\\":true,\\\"emitDecoratorMetadata\\\":true}\" smoke-test/run-pg.ts"
   },
   "peerDependencies": {
     "@nestjs/common": "^10.0.0 || ^11.0.0",
@@ -33,10 +48,12 @@
     "@nestjs/core": "^11.2.1",
     "@types/jest": "^30.0.0",
     "@types/node": "^22.10.7",
+    "@types/pg": "^8.23.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
     "jest": "^30.0.0",
     "mysql2": "^3.23.4",
+    "pg": "^8.23.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "ts-jest": "^29.2.5",
