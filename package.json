@@ -1,6 +1,6 @@
 {
   "name": "nestjs-pagination-toolkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Reusable pagination, dynamic filtering, sorting and search helper for NestJS + TypeORM repositories",
   "keywords": [
     "nestjs",

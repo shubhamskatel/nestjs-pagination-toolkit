@@ -1192,6 +1192,31 @@ describe('PaginationService', () => {
         expect.objectContaining({ combined_full_name: '%john doe%' }),
       );
     });
+
+    it('resolves a multi-level dot searchKey to the joined relation alias (e.g. "post_author"), not a truncated one', async () => {
+      const qb = createMockQueryBuilder();
+      const repo = createMockRepository(qb);
+      qb.getManyAndCount.mockResolvedValue([[], 0]);
+
+      await service.applyPaginationAndFilters(
+        repo,
+        [],
+        {},
+        [],
+        { search: 'alice' },
+        ['post.author.name'],
+      );
+
+      const brackets = extractBracketsArg(qb.andWhere);
+      expect(brackets).toBeDefined();
+
+      const innerQb = createInnerQbMock();
+      (brackets as any).whereFactory(innerQb);
+
+      expect(innerQb.where).toHaveBeenCalledWith(
+        expect.stringContaining('LOWER(post_author.name) LIKE :search_0'),
+      );
+    });
   });
 
   describe('applyPaginationAndFilters - sorting', () => {

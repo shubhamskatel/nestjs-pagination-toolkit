@@ -274,6 +274,21 @@ export class PaginationService {
     }
   }
 
+  /**
+   * Splits a (possibly multi-level) dot-notated search key into the joined
+   * relation alias and the final column, matching the alias convention
+   * applyRelations/buildSelectClause/resolveFilterPath use elsewhere
+   * (`parts.slice(0, i + 1).join('_')`) - e.g. 'post.author.name' becomes
+   * alias 'post_author', column 'name'. Only the last segment is the
+   * column; everything before it is the relation path.
+   */
+  private parseSearchKey(key: string): { alias: string; column: string } {
+    if (!key.includes('.')) return { alias: 'entity', column: key };
+    const parts = key.split('.');
+    const column = parts.pop() as string;
+    return { alias: parts.join('_'), column };
+  }
+
   private applySearch(
     queryBuilder: SelectQueryBuilder<any>,
     search: string | undefined,
@@ -292,9 +307,7 @@ export class PaginationService {
         const aliasGroups: Record<string, Set<string>> = {};
 
         searchKeys.forEach((key) => {
-          const [alias, column] = key.includes('.')
-            ? key.split('.')
-            : ['entity', key];
+          const { alias, column } = this.parseSearchKey(key);
           if (!aliasGroups[alias]) aliasGroups[alias] = new Set();
           aliasGroups[alias].add(column);
         });
@@ -314,9 +327,7 @@ export class PaginationService {
         }
 
         searchKeys.forEach((key, index) => {
-          const [alias, column] = key.includes('.')
-            ? key.split('.')
-            : ['entity', key];
+          const { alias, column } = this.parseSearchKey(key);
           const paramKey = `search_${index}`;
           conditions.push(`LOWER(${alias}.${column}) LIKE :${paramKey}`);
           parameters[paramKey] = `%${searchLower}%`;
