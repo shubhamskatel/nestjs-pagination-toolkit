@@ -24,7 +24,7 @@ into SQL, so you don't have to sanitize field names yourself.
 npm install nestjs-pagination-toolkit
 ```
 
-Supports NestJS 10, 11 and 12.
+Supports NestJS 10, 11 and 12, and TypeORM 0.3 and 1.x.
 
 Peer dependencies you need in the consuming project:
 
